@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Template Syntax</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="Interpolations">
+      <h1>Interpolations</h1>
+      <div>Message: {{ msg }}</div>
+      <div v-once>This will never change: {{ msg }}</div>
+      <div v-html="rawHtml"></div>
+      <div v-bind:id="dymanicId">Element with dynamic id</div>
+      <div>
+        {{ number + 1 }}
+        {{ ok ? 'YES' : 'NO' }}
+        {{ message.split('').reverse().join('') }}
+        <div v-bind:id="'list-' + id"></div>        
+      </div>
+    </div>
+
+    <div id="Directives">
+      <h1>Directives</h1>
+      <div v-if="seen">Now you see me</div>
+      <div><a v-bind:href="url">{{url}}</a></div>
+      <div><a v-on:click="doSomething" href="">Do something</a></div>
+      <div><a v-on:click.prevent="doSomething" href="">Do something with prevent default</a></div>
+    </div>
+
+    <div id="Filters">
+      <h1>Filters</h1>
+      <div>{{ message | capitalize }}</div>
+    </div>
+
+    <div id="Shorthands">
+      <h1>Shorthands</h1>
+      <div>
+        <!-- full syntax -->
+        <a v-bind:href="url">{{url}}</a>
+        <!-- shorthand -->
+        <a :href="url">{{url}}</a>
+        <!-- full syntax -->
+        <a v-on:click="doSomething">{{url}}</a>
+        <!-- shorthand -->
+        <a :href="url" @click="doSomething">{{url}}</a>
+        <a :href="url" @click.prevent="doSomething">{{url}}</a>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
