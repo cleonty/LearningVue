@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Class and Style Bindings</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="BindingHTMLClasses">
+      <h1>Binding HTML Classes</h1>
+      <div v-bind:class="{active: isActive}">Active</div>
+      <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">Active and Danger</div>
+      <div v-bind:class="classObject">Via class object: active and danger</div>
+      <div v-bind:class="classObjectComputed">Via class object computed: active and danger</div>
+      <div v-bind:class="[activeClass, errorClass]">Via class array: active and danger</div>
+      <div v-bind:class="[isActive ? activeClass : '', errorClass]">Via class array with a condition: active and danger</div>
+      <div v-bind:class="[{ active: isActive }, errorClass]">Via class array with an object inside: active and danger</div>
+      <my-component class="baz boo"></my-component>
+      <my-component class="baz boo" v-bind:class="{active: isActive}"></my-component>
+    </div>
+    
+    <div id="BindingInlineStyles">
+      <h1>Binding Inline Styles</h1>
+      <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">Inline style</div>
+      <div v-bind:style="styleObject">Inline style via object</div>
+      <div v-bind:style="[baseStyles, overridingStyles]">The array syntax for v-bind:style allows you to apply multiple style objects to the same element</div>
+
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
