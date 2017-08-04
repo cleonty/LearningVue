@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Computed Properties and Watchers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="ComputedProperties">
+      <h1>Computed Properties</h1>
+      <p>Original message: "{{ message }}"</p>
+      <p>Computed reversed message: "{{ reversedMessage }}"</p>
+      <p>Opera: "{{ opera }}"</p>
+      <p>Computed 'now' never updates: "{{ nowComputed }}"</p>
+      <p>Method 'now' updates during rendering: "{{ nowMethod() }}" <input type="button" v-on:click="updateOpera" value="Update opera!"></p>
+    </div>
+
+    <div id="Watchers">
+      <h1>Watchers</h1>
+      <p>
+        Ask a yes/no question:
+        <input v-model="question">
+      </p>
+      <p>{{ answer }}</p>
+    </div>
+    <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>    
+    <script src="app.js"></script>
+  </body>
+</html>
