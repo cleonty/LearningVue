@@ -1,0 +1,1 @@
+# What if we use a object with a prototype as Vue's data?
