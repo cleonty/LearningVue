@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Event Handling</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+  <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+  <div id="example-1">
+    <button v-on:click="counter += 1">Add 1</button>
+    <p>The button above has been clicked {{ counter }} times.</p>
+  </div>
+
+  <div id="example-2">
+    <!-- `greet` is the name of a method defined below -->
+    <button v-on:click="greet">Greet</button>
+  </div>
+
+  <div id="example-3">
+    <button v-on:click="say('hi')">Say hi</button>
+    <button v-on:click="say('what')">Say what</button>
+    <button v-on:click="warn('Form cannot be submitted yet.', $event)">
+        Submit
+      </button>
+  </div>
+
+  <div id="example-4">
+    <!-- the click event's propagation will be stopped -->
+    <a v-on:click.stop="doThis">click.stop</a>
+    <!-- the submit event will no longer reload the page -->
+    <form v-on:submit.prevent="onSubmit">submit.prevent</form>
+    <!-- modifiers can be chained -->
+    <a v-on:click.stop.prevent="doThat">click.stop.prevent</a>
+    <!-- just the modifier -->
+    <form v-on:submit.prevent></form>
+    <!-- use capture mode when adding the event listener -->
+    <!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+    <div v-on:click.capture="doThis">click.capture</div>
+    <!-- only trigger handler if event.target is the element itself -->
+    <!-- i.e. not from a child element -->
+    <div v-on:click.self="doThat">click.self</div>
+  </div>
+
+  <input v-on:keyup.13="submit">
+  <input v-on:keyup.enter="submit">
+
+  <!-- Alt + C -->
+  <input @keyup.alt.67="clear">
+  <!-- Ctrl + Click -->
+  <div @click.ctrl="doSomething">Do something</div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
